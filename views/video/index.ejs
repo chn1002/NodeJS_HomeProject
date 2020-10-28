@@ -1,0 +1,39 @@
+<!-- views/contacts/index.ejs -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('../partials/head') %>
+</head>
+
+<body>
+  <%- include('../partials/nav') %>
+
+  <div class="container contact contact-index">
+    <h2>HLS Video Player</h2>
+    <video id="video" width="500" height="500" controls></video>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        const video = document.getElementById('video');
+        const videoSrc = '/videos/output.m3u8';
+
+        if (Hls.isSupported()) {
+            const hls = new Hls();
+
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                video.play();
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+            video.addEventListener('loadedmetadata', () => {
+                video.play();
+            });
+        }
+    </script>
+  </div>
+</body>
+
+</html>
