@@ -1,6 +1,4 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
     <div class="container">
         <div class="navbar-brand">My Website</div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -13,8 +11,14 @@
                 <li class="nav-item"><a href="/posts" class="nav-link">게시판</a></li>
                 <li class="nav-item"><a href="/contacts" class="nav-link">방명록</a></li>
                 <li class="nav-item"><a href="/video" class="nav-link">Video</a></li>
+                <li class="nav-item"><a href="/video/webrtc" class="nav-link">Video WEBRTC</a></li>
                 <li class="nav-item"><a href="/demo" class="nav-link">Demo</a></li>
+                <li class="nav-item"><a href="/chatting" class="nav-link">채팅</a></li>
+                <% if(isAuthenticated){ %>
+                <% if(currentUser.admin){ %>
                 <li class="nav-item"><a href="/admin" class="nav-link">관리자</a></li>
+                <% } %>
+                <% } %>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <% if(isAuthenticated){ %>

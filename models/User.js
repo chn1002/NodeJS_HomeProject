@@ -21,10 +21,18 @@ var userSchema = mongoose.Schema({
     match:[/^.{4,12}$/,'Should be 4-12 characters!'],
     trim:true
   },
+  created:{
+    type:Date,
+    default:Date.now
+   },
   email:{
     type:String,
     match:[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,'Should be a vaild email address!'],
     trim:true
+  },
+  admin:{
+    type:Boolean,
+    default:false
   }
 },{
   toObject:{virtuals:true}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('../partials/head') %>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/chatting.js"></script>
+</head>
+
+<body>
+  <%- include('../partials/nav') %>
+
+  <div class="container contact contact-index">
+    <div id="main">
+      <div id="chat">
+      </div>
+      <div>
+        <input type="text" id="test" placeholder="메시지를 입력해주세요..">
+        <button onclick="send()">전송</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
